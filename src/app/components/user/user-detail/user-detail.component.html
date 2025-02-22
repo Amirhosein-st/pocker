@@ -1,0 +1,51 @@
+<div class="user-detail">
+  <h2 (click)="onRefresh()">
+    User Detail
+    <fa-icon [icon]="currentIcon" [class.fa-spin]="isSpinning"></fa-icon>
+  </h2>
+
+  <div class="user-data" *ngIf="user">
+    <p>
+      <label>User Name:</label>
+      <span>{{ user.userName }}</span>
+    </p>
+    <p>
+      <label>First Name:</label>
+      <span>{{ user.firstName }}</span>
+    </p>
+    <p>
+      <label>Last Name:</label>
+      <span>{{ user.lastName }}</span>
+    </p>
+    <p>
+      <label>Email:</label>
+      <span>{{ user.email }}</span>
+    </p>
+    <hr>
+    <p>
+      <label style="color: yellow">Total Cash In:</label>
+      <span>{{ user.totalCashIn }} <span style="color: orange">T</span></span>
+    </p>
+    <p>
+      <label style="color: #04c504">Total Cash Exist:</label>
+      <span>{{ user.totalCashExcist }} <span style="color: orange">T</span></span>
+    </p>
+    <p>
+      <label style="color: #5d5dff">Count Cash In:</label>
+      <span>{{ user.countCashIn }} <span style="color: orange"></span></span>
+    </p>
+    <p>
+      <label style="color: aqua">Cash Win:</label>
+      <span>{{ user.cashWin }} <span style="color: orange">T</span></span>
+    </p>
+    <p>
+      <label style="color: red">Cash Lost:</label>
+      <span>{{ user.cashLosed }} <span style="color: orange">T</span></span>
+    </p>
+    <p>
+      <label style="color: #ca9d4f">Cash Out:</label>
+      <span>{{ user.cashOut }} <span style="color: orange">T</span></span>
+    </p>
+  </div>
+
+</div>

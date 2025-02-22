@@ -1,0 +1,62 @@
+<div class="user-list">
+  <h2>Admin List</h2>
+
+  <!--  <button class="add-user-bn" (click)="openModal($event)">&plus; Add User &plus;</button>-->
+
+  <table>
+    <thead>
+    <tr>
+      <th>User Name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of userList">
+      <td style="white-space: nowrap">{{ user.userName }}</td>
+      <td style="white-space: nowrap">{{ user.firstName | truncate:10}}</td>
+      <td style="white-space: nowrap">{{ user.lastName | truncate:10}}</td>
+      <td style="white-space: nowrap">{{ user.email | truncate:10 }}</td>
+      <td>
+        <button (click)="openModal(user)">
+          &dollar; &excl; &dollar;
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal" *ngIf="selectedUser" (click)="closeModal($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close-btn" (click)="selectedUser = null">&times;</span>
+    <h3>Admin Details</h3>
+    <p>
+      <label>User Name:</label>
+      <span>{{ selectedUser?.userName }}</span>
+    </p>
+    <p>
+      <label>First Name:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.firstName }}</span>
+      <input *ngIf="isEditing" [(ngModel)]="copiedUser.firstName"/>
+    </p>
+    <p>
+      <label>Last Name:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.lastName }}</span>
+      <input *ngIf="isEditing" [(ngModel)]="copiedUser.lastName"/>
+    </p>
+    <p>
+      <label>Email:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.email }}</span>
+      <input *ngIf="isEditing" [(ngModel)]="copiedUser.email"/>
+    </p>
+
+    <div class="modal-buttons">
+      <button class="modal-btn-Edit" *ngIf="!isEditing" (click)="startEditing()">Edit</button>
+      <button class="modal-btn-Save" *ngIf="isEditing" (click)="saveChanges()">Save</button>
+      <button class="modal-btn-Cancel" *ngIf="isEditing" (click)="cancelEditing()">Cancel</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="user-list">
+  <h2>User List</h2>
+
+  <!--  <button class="add-user-bn" (click)="openModal($event)">&plus; Add User &plus;</button>-->
+
+  <table>
+    <thead>
+    <tr>
+      <th>User Name</th>
+      <th>Total Cash In</th>
+      <th>Total Cash Exist</th>
+      <th>Cash Lost</th>
+      <th>Cash Win</th>
+      <th>Cash Out</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of userList">
+      <td>{{ user.userName | truncate:10 }}</td>
+      <td>{{ user.totalCashIn }}</td>
+      <td>{{ user.totalCashExcist }}</td>
+      <td>{{ user.cashLosed }}</td>
+      <td>{{ user.cashWin }}</td>
+      <td>{{ user.cashOut }}</td>
+      <td>
+        <button (click)="openModal(user)">&excl; &dollar; &excl;</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal" *ngIf="selectedUser" (click)="closeModal($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close-btn" (click)="selectedUser = null">&times;</span>
+    <h3>User Details</h3>
+    <p>
+      <label>User Name:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.userName }}</span>
+      <input *ngIf="isEditing" [(ngModel)]="copiedUser.userName"/>
+    </p>
+    <p>
+      <label>Role:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.role }}</span>
+      <input *ngIf="isEditing" [(ngModel)]="copiedUser.role"/>
+    </p>
+    <p>
+      <label>First Name:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.firstName }}</span>
+      <input *ngIf="isEditing" [(ngModel)]="copiedUser.firstName"/>
+    </p>
+    <p>
+      <label>Last Name:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.lastName }}</span>
+      <input *ngIf="isEditing" [(ngModel)]="copiedUser.lastName"/>
+    </p>
+    <p>
+      <label>Email:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.email }}</span>
+      <input *ngIf="isEditing" [(ngModel)]="copiedUser.email"/>
+    </p>
+    <p>
+      <label>Total Cash In:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.totalCashIn }}</span>
+      <input type="number" *ngIf="isEditing" [(ngModel)]="copiedUser.totalCashIn"/>
+    </p>
+    <p>
+      <label>Total Cash Exist:</label>
+      <span>{{ selectedUser?.totalCashExcist }}</span>
+    </p>
+    <p>
+      <label>Count Cash In:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.countCashIn }}</span>
+      <input type="number" *ngIf="isEditing" [(ngModel)]="copiedUser.countCashIn"/>
+    </p>
+    <p>
+      <label>Cash Lost:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.cashLosed }}</span>
+      <input type="number" *ngIf="isEditing" [(ngModel)]="copiedUser.cashLosed  "/>
+    </p>
+    <p>
+      <label>Cash Win:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.cashWin }}</span>
+      <input type="number" *ngIf="isEditing" [(ngModel)]="copiedUser.cashWin  "/>
+    </p>
+    <p>
+      <label>Cash Out:</label>
+      <span *ngIf="!isEditing">{{ selectedUser?.cashOut }}</span>
+      <input type="number" *ngIf="isEditing" [(ngModel)]="copiedUser.cashOut   "/>
+    </p>
+
+    <div class="modal-buttons">
+      <button class="modal-btn-Edit" *ngIf="!isEditing" (click)="startEditing()">Edit</button>
+      <button class="modal-btn-Save" *ngIf="isEditing" (click)="saveChanges()">Save</button>
+      <button class="modal-btn-Cancel" *ngIf="isEditing" (click)="cancelEditing()">Cancel</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="innerContainer">
+    <h1 class="title">Create Your Account</h1>
+
+    <input
+      type="text"
+      class="SignUp-input"
+      [ngClass]="{'input-error': errors.userName}"
+      placeholder="Username"
+      [(ngModel)]="userName"
+      (ngModelChange)="errors.userName = false" />
+
+    <input
+      type="text"
+      class="SignUp-input"
+      [ngClass]="{'input-error': errors.firstName}"
+      placeholder="First Name"
+      [(ngModel)]="firstName"
+      (ngModelChange)="errors.firstName = false" />
+
+    <input
+      type="text"
+      class="SignUp-input"
+      [ngClass]="{'input-error': errors.lastName}"
+      placeholder="Last Name"
+      [(ngModel)]="lastName"
+      (ngModelChange)="errors.lastName = false" />
+
+    <input
+      type="email"
+      class="SignUp-input"
+      [ngClass]="{'input-error': errors.email}"
+      placeholder="Email"
+      [(ngModel)]="email"
+      (ngModelChange)="errors.email = false" />
+
+    <div class="passwordContainer">
+      <input
+        [type]="secureTextEntry ? 'password' : 'text'"
+        class="inputPassword"
+        [ngClass]="{'input-error': errors.password}"
+        placeholder="Password"
+        [(ngModel)]="password"
+        (ngModelChange)="errors.password = false" />
+      <button class="SignUp-eyeIcon" type="button" (click)="secureTextEntry = !secureTextEntry">
+        <fa-icon [icon]="secureTextEntry ? faEyeSlash : faEye"></fa-icon>
+      </button>
+    </div>
+
+    <div class="passwordContainer">
+      <input
+        [type]="secureTextEntryConfirm ? 'password' : 'text'"
+        class="inputPassword"
+        [ngClass]="{'input-error': errors.confirmPassword}"
+        placeholder="Confirm Password"
+        [(ngModel)]="confirmPassword"
+        (ngModelChange)="errors.confirmPassword = false" />
+      <button class="SignUp-eyeIcon" type="button" (click)="secureTextEntryConfirm = !secureTextEntryConfirm">
+        <fa-icon [icon]="secureTextEntryConfirm ? faEyeSlash : faEye"></fa-icon>
+      </button>
+    </div>
+
+    <button class="buttonSignUp" (click)="handleSignUp()">Sign Up</button>
+    <button class="backButton" (click)="onBackToLogin()">Back to Login</button>
+  </div>
+</div>

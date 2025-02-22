@@ -1,0 +1,15 @@
+<div class="admin-page">
+  <nav class="tabs">
+    <span class="tab" [class.active]="activeTab === 'usersList'" (click)="showTab('usersList')">
+      User List
+    </span>
+    <span class="tab" [class.active]="activeTab === 'adminsList'" (click)="showTab('adminsList')">
+      Admin List
+    </span>
+  </nav>
+
+  <div class="tab-content">
+    <app-admin-usersList *ngIf="activeTab === 'usersList'"></app-admin-usersList>
+    <app-admin-adminList *ngIf="activeTab === 'adminsList'"></app-admin-adminList>
+  </div>
+</div>

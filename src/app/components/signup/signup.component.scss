@@ -1,0 +1,246 @@
+// Poker Color Palette
+$poker-green: #0b3d0b;   // deep green, reminiscent of a poker table
+$gold: #f1c40f;          // bright gold for accents
+$dark-bg: #141414;       // near-black background
+$input-bg: #2b2b2b;      // dark input background
+$error-red: #e74c3c;     // error red for input outlines
+$white: #fff;
+
+// Base Styles
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: $dark-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerContainer {
+  width: 80vw;
+  max-width: 400px;
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, $poker-green, $dark-bg);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 30px;
+  color: $gold;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba($gold, 0.8);
+}
+
+.SignUp-input {
+  width: 93%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: $input-bg;
+  color: $white;
+  font-size: 16px;
+  border: none;
+  transition: outline 0.3s ease;
+
+  &:active,
+  &:focus {
+    outline: 1px solid $gold;
+  }
+}
+
+.passwordContainer {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputPassword {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  background-color: $input-bg;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+
+  &:focus,
+  &:active {
+    outline: 1px solid $gold;
+  }
+}
+
+.SignUp-eyeIcon {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: $gold;
+  cursor: pointer;
+}
+
+.buttonSignUp {
+  width: 80%;
+  padding: 10px;
+  background-color: $gold;
+  border-radius: 5px;
+  color: $dark-bg;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($gold, 10%);
+  }
+}
+
+.backButton {
+  color: $gold;
+  margin-top: 20px;
+  font-size: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: lighten($gold, 10%);
+  }
+}
+
+.input-error {
+  outline: 1px solid $error-red !important;
+}
+
+// Small Mobile (max-width: 320px)
+@media screen and (max-width: 320px) {
+  .innerContainer {
+    padding: 15px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .SignUp-input,
+  .inputPassword {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .buttonSignUp {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .backButton {
+    font-size: 12px;
+  }
+}
+
+// Mobile (min-width: 321px) and (max-width: 480px)
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  .innerContainer {
+    max-width: 320px;
+    padding: 25px;
+  }
+  .title {
+    font-size: 22px;
+    margin-bottom: 17px;
+  }
+  .SignUp-input,
+  .inputPassword {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .buttonSignUp {
+    width: 100%;
+    padding: 9px;
+    font-size: 17px;
+    margin-top: 9px;
+  }
+  .backButton {
+    font-size: 13px;
+  }
+}
+
+// Tablet (min-width: 481px) and (max-width: 768px)
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .innerContainer {
+    padding: 25px;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .SignUp-input,
+  .inputPassword {
+    padding: 14px;
+    font-size: 16px;
+  }
+  .buttonSignUp {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .backButton {
+    font-size: 14px;
+  }
+}
+
+// Desktop (min-width: 769px) and (max-width: 1440px)
+@media screen and (min-width: 769px) and (max-width: 1440px) {
+  .innerContainer {
+    padding: 30px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .SignUp-input,
+  .inputPassword {
+    padding: 15px;
+    font-size: 16px;
+  }
+  .buttonSignUp {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .backButton {
+    font-size: 14px;
+  }
+}
+
+// Big Monitor (TV) (min-width: 1441px)
+@media screen and (min-width: 1441px) {
+  .innerContainer {
+    padding: 40px;
+    max-width: 500px;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .SignUp-input,
+  .inputPassword {
+    padding: 18px;
+    font-size: 18px;
+  }
+  .buttonSignUp {
+    width: 100%;
+    padding: 14px;
+    font-size: 20px;
+    margin-top: 12px;
+  }
+  .backButton {
+    font-size: 16px;
+  }
+}

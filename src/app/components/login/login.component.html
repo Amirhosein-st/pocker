@@ -1,0 +1,43 @@
+<div class="login-container">
+  <div class="login-innerContainer">
+    <h1 class="login-title">Welcome Back</h1>
+
+    <input
+      type="text"
+      class="login-input"
+      [ngClass]="{'input-error': errors.userName}"
+      placeholder="Username"
+      [(ngModel)]="userName"
+      (ngModelChange)="errors.userName = false"
+    />
+
+    <div class="login-passwordContainer">
+      <input
+        [type]="secureTextEntry ? 'password' : 'text'"
+        class="login-inputPassword"
+        [ngClass]="{'input-error': errors.password}"
+        placeholder="Password"
+        [(ngModel)]="password"
+        (ngModelChange)="errors.password = false"
+      />
+
+      <button class="login-eyeIcon" (click)="toggleSecureTextEntry()">
+        <fa-icon [icon]="secureTextEntry ? faEyeSlash : faEye"></fa-icon>
+      </button>
+    </div>
+
+    <button class="login-buttonLogin" (click)="handleLogin()">
+      Sign In
+    </button>
+
+    <p class="login-ORText">OR</p>
+
+    <button class="login-buttonSignUp" (click)="onSignUp()">
+      Sign Up
+    </button>
+
+    <button class="login-forgotPassword" (click)="onForgotPassword()">
+      Forgot Password?
+    </button>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.tabs {
+  display: flex;
+  background-color: #0b3d0b;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px 20px;
+  text-align: center;
+  color: #f1c40f;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(241, 196, 15, 0.1);
+    border-bottom: 2px solid #f1c40f;
+  }
+}
+
+.active {
+  border-bottom: 2px solid #f1c40f;
+  font-weight: bold;
+}
+
+.tab-content {
+  flex: 1;
+  background-color: #141414;
+  color: #fff;
+}

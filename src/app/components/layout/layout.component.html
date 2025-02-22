@@ -1,0 +1,21 @@
+<div class="layout-header">
+  <div class="welcome">
+    <span>Hello, {{ user?.userName }}</span>
+    <button class="exit-btn" (click)="exit()">
+      <fa-icon [icon]="faSignOutAlt"></fa-icon> Exit
+    </button>
+  </div>
+</div>
+
+<div class="layout-content" *ngIf="user">
+  <div *ngIf="user.role === 'admin' ">
+    <app-admin-page></app-admin-page>
+  </div>
+  <div *ngIf="user.role === 'user' ">
+    <app-user-page></app-user-page>
+  </div>
+</div>
+
+<footer class="layout-footer">
+  <span>{{ todayShamsi }}</span>
+</footer>
